@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Collection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="gallery">
+        <!-- Example Item -->
+        <div class="tile" onclick="openModal('item1')">
+            <div class="slideshow">
+                <img src="image1.jpeg" alt="Cloth 1">
+                <img src="image2.jpeg" alt="Cloth 2">
+                <img src="image3.jpeg" alt="Cloth 3">
+            </div>
+            <h3>Item 1</h3>
+            <p>Sizes: S, M, L</p>
+            <p>Short Description</p>
+        </div>
+        <div class="tile" onclick="openModal('item12')">
+            <div class="slideshow">
+                <img src="image4.jpeg" alt="Cloth 1">
+                <img src="image5.jpeg" alt="Cloth 2">
+                <img src="image6.jpeg" alt="Cloth 3">
+            </div>
+            <h3>Item 2</h3>
+            <p>Sizes: S, M, L</p>
+            <p>Short Description</p>
+        </div>
+        <!-- Repeat for other items -->
+    </div>
+
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <div class="slideshow-modal">
+                <img src="image1.jpeg" alt="Cloth 1">
+                <img src="image2.jpeg" alt="Cloth 2">
+                <img src="image3.jpeg" alt="Cloth 3">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Slideshow function for each tile
+        const slideshows = document.querySelectorAll('.slideshow');
+        slideshows.forEach(slideshow => {
+            let slideIndex = 0;
+            showSlides(slideshow);
+
+            function showSlides(slideshow) {
+                let slides = slideshow.querySelectorAll('img');
+                slides.forEach((slide, i) => {
+                    slide.style.display = 'none';
+                });
+                slideIndex++;
+                if (slideIndex > slides.length) slideIndex = 1;
+                slides[slideIndex - 1].style.display = 'block';
+                setTimeout(() => showSlides(slideshow), 2000); // Change image every 2 seconds
+            }
+        });
+
+        // Modal function
+        function openModal(item) {
+            const modal = document.getElementById('modal');
+            const modalSlides = modal.querySelectorAll('.slideshow-modal img');
+            slideshows.forEach(slideshow => {
+                if (slideshow.parentNode.getAttribute('onclick').includes(item)) {
+                    const slides = slideshow.querySelectorAll('img');
+                    slides.forEach((slide, index) => {
+                        modalSlides[index].src = slide.src;
+                    });
+                }
+            });
+            modal.style.display = 'block';
+            showModalSlides();
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        let modalSlideIndex = 0;
+        function showModalSlides() {
+            const slides = document.querySelectorAll('.slideshow-modal img');
+            slides.forEach((slide, i) => {
+                slide.style.display = 'none';
+            });
+            modalSlideIndex++;
+            if (modalSlideIndex > slides.length) modalSlideIndex = 1;
+            slides[modalSlideIndex - 1].style.display = 'block';
+            setTimeout(showModalSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+</body>
+</html>
