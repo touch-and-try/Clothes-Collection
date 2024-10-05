@@ -33,70 +33,65 @@
         </div>
     </div>
 
+    <!-- Modal -->
     <div id="modal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <div class="modal-content">
             <div class="slideshow-modal">
-                <img src="image1.jpeg" alt="Cloth 1">
-                <img src="image2.jpeg" alt="Cloth 2">
-                <img src="image3.jpeg" alt="Cloth 3">
-                <img src="image4.jpeg" alt="Cloth 4">
-                <img src="image5.jpeg" alt="Cloth 5">
-                <img src="image6.jpeg" alt="Cloth 6">
+                <!-- Images will be dynamically added here based on the clicked tile -->
             </div>
+            <!-- Modal navigation buttons -->
+            <span class="nav left" onclick="plusSlides(-1)">&#10094;</span>
+            <span class="nav right" onclick="plusSlides(1)">&#10095;</span>
         </div>
     </div>
 
     <script>
-        // Slideshow function for each tile
-        const slideshows = document.querySelectorAll('.slideshow');
-        slideshows.forEach(slideshow => {
-            let slideIndex = 0;
-            showSlides(slideshow);
+        let modalSlideIndex = 1;
 
-            function showSlides(slideshow) {
-                let slides = slideshow.querySelectorAll('img');
-                slides.forEach((slide, i) => {
-                    slide.style.display = 'none';
-                });
-                slideIndex++;
-                if (slideIndex > slides.length) slideIndex = 1;
-                slides[slideIndex - 1].style.display = 'block';
-                setTimeout(() => showSlides(slideshow), 2000); // Change image every 2 seconds
-            }
-        });
-
-        // Modal function
+        // Function to open the modal and only show relevant images
         function openModal(item) {
             const modal = document.getElementById('modal');
-            const modalSlides = modal.querySelectorAll('.slideshow-modal img');
-            modalSlides.forEach(slide => {
-                slide.style.display = 'none';
-            });
+            const modalContent = document.querySelector('.slideshow-modal');
+            modalContent.innerHTML = ''; // Clear previous content
+
+            // Get the relevant slideshow images from the clicked tile
             const slides = document.querySelector(`.tile[onclick="openModal('${item}')"] .slideshow`).querySelectorAll('img');
-            slides.forEach((slide, index) => {
-                modalSlides[index].src = slide.src;
-                modalSlides[index].style.display = 'block';
+
+            // Add the images to the modal dynamically
+            slides.forEach((slide) => {
+                const img = document.createElement('img');
+                img.src = slide.src;
+                modalContent.appendChild(img);
             });
-            modal.style.display = 'block';
-            showModalSlides();
+
+            modal.classList.add('show'); // Show the modal
+            showSlides(modalSlideIndex);
         }
 
         function closeModal() {
-            document.getElementById('modal').style.display = 'none';
+            const modal = document.getElementById('modal');
+            modal.classList.remove('show'); // Hide the modal
         }
 
-        let modalSlideIndex = 0;
-        function showModalSlides() {
-            const slides = document.querySelectorAll('.slideshow-modal img');
-            slides.forEach((slide, i) => {
+        function plusSlides(n) {
+            showSlides(modalSlideIndex += n);
+        }
+
+        function showSlides(n) {
+            let slides = document.querySelectorAll('.slideshow-modal img');
+            if (n > slides.length) { modalSlideIndex = 1 }
+            if (n < 1) { modalSlideIndex = slides.length }
+            slides.forEach(slide => {
                 slide.style.display = 'none';
             });
-            modalSlideIndex++;
-            if (modalSlideIndex > slides.length) modalSlideIndex = 1;
             slides[modalSlideIndex - 1].style.display = 'block';
-            setTimeout(showModalSlides, 2000); // Change image every 2 seconds
         }
+
+        // Ensure modal is hidden on page load by removing "show" class
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('modal').classList.remove('show');
+        });
     </script>
 </body>
 </html>
