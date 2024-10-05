@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="gallery">
-        <!-- Example Item -->
+        <!-- First Item -->
         <div class="tile" onclick="openModal('item1')">
             <div class="slideshow">
                 <img src="image1.jpeg" alt="Cloth 1">
@@ -17,19 +17,20 @@
             </div>
             <h3>Item 1</h3>
             <p>Sizes: S, M, L</p>
-            <p>Short Description</p>
+            <p>Short Description for Item 1</p>
         </div>
-        <div class="tile" onclick="openModal('item12')">
+
+        <!-- Second Item -->
+        <div class="tile" onclick="openModal('item2')">
             <div class="slideshow">
-                <img src="image4.jpeg" alt="Cloth 1">
-                <img src="image5.jpeg" alt="Cloth 2">
-                <img src="image6.jpeg" alt="Cloth 3">
+                <img src="image4.jpeg" alt="Cloth 4">
+                <img src="image5.jpeg" alt="Cloth 5">
+                <img src="image6.jpeg" alt="Cloth 6">
             </div>
             <h3>Item 2</h3>
-            <p>Sizes: S, M, L</p>
-            <p>Short Description</p>
+            <p>Sizes: M, L, XL</p>
+            <p>Short Description for Item 2</p>
         </div>
-        <!-- Repeat for other items -->
     </div>
 
     <div id="modal" class="modal">
@@ -39,6 +40,9 @@
                 <img src="image1.jpeg" alt="Cloth 1">
                 <img src="image2.jpeg" alt="Cloth 2">
                 <img src="image3.jpeg" alt="Cloth 3">
+                <img src="image4.jpeg" alt="Cloth 4">
+                <img src="image5.jpeg" alt="Cloth 5">
+                <img src="image6.jpeg" alt="Cloth 6">
             </div>
         </div>
     </div>
@@ -66,13 +70,13 @@
         function openModal(item) {
             const modal = document.getElementById('modal');
             const modalSlides = modal.querySelectorAll('.slideshow-modal img');
-            slideshows.forEach(slideshow => {
-                if (slideshow.parentNode.getAttribute('onclick').includes(item)) {
-                    const slides = slideshow.querySelectorAll('img');
-                    slides.forEach((slide, index) => {
-                        modalSlides[index].src = slide.src;
-                    });
-                }
+            modalSlides.forEach(slide => {
+                slide.style.display = 'none';
+            });
+            const slides = document.querySelector(`.tile[onclick="openModal('${item}')"] .slideshow`).querySelectorAll('img');
+            slides.forEach((slide, index) => {
+                modalSlides[index].src = slide.src;
+                modalSlides[index].style.display = 'block';
             });
             modal.style.display = 'block';
             showModalSlides();
