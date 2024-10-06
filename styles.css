@@ -353,3 +353,40 @@ body {
         width: calc(50% - 10px) !important; /* 2 per row */
     }
 }
+
+/* Responsive adjustments for mobile view */
+@media screen and (max-width: 1200px) {
+    .tile {
+        width: calc(16.666% - 10px); /* 6 per row */
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .tile {
+        width: calc(25% - 10px); /* 4 per row */
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .tile {
+        width: calc(33.333% - 10px); /* 3 per row */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery {
+        padding: 5px;
+    }
+    .tile {
+        width: calc(50% - 10px); /* 2 per row */
+        margin: 5px;
+        padding: 5px;
+    }
+    .tile h3 {
+        font-size: 1em;
+        margin: 8px 0 4px;
+    }
+    .tile p {
+        font-size: 0.9em;
+    }
+}
