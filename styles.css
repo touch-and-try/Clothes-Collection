@@ -242,75 +242,6 @@ body {
     font-size: 1.1em;
 }
 
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.tile {
-    width: calc(12.5% - 10px);
-    margin: 5px;
-    padding: 5px;
-    box-sizing: border-box;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.tile .slideshow {
-    width: 100%;
-    padding-top: 100%; /* 1:1 Aspect Ratio */
-    position: relative;
-    overflow: hidden;
-}
-
-.tile .slideshow img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.tile h3 {
-    margin: 5px 0;
-    font-size: 0.85em; /* Further reduced font size */
-    text-align: center;
-}
-
-.tile p {
-    margin: 0;
-    font-size: 0.7em; /* Further reduced font size */
-    text-align: center;
-}
-
-.tile:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.tile img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.tile .slideshow img {
-    display: none;
-}
-
-.tile .slideshow img:first-child {
-    display: block;
-}
-
 /* Responsive adjustments */
 @media (max-width: 1600px) {
     .tile {
@@ -344,49 +275,41 @@ body {
 
 @media (max-width: 600px) {
     .tile {
-        width: calc(33.333% - 10px); /* 3 per row */
-    }
-}
-
-@media (max-width: 400px) {
-    .tile {
         width: calc(50% - 10px) !important; /* 2 per row */
     }
 }
 
 /* Responsive adjustments for mobile view */
-@media screen and (max-width: 1200px) {
-    .tile {
-        width: calc(16.666% - 10px); /* 6 per row */
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .tile {
-        width: calc(25% - 10px); /* 4 per row */
-    }
-}
-
 @media screen and (max-width: 600px) {
-    .tile {
-        width: calc(33.333% - 10px); /* 3 per row */
-    }
-}
-
-@media screen and (max-width: 480px) {
     .gallery {
-        padding: 5px;
+        padding: 10px;
     }
     .tile {
-        width: calc(50% - 10px); /* 2 per row */
-        margin: 5px;
-        padding: 5px;
+        width: calc(50% - 20px); /* 2 per row, slightly larger */
+        margin: 10px; /* Adjust margin to increase space between tiles */
+        padding: 10px; /* Add padding to make tiles more spacious */
     }
     .tile h3 {
-        font-size: 1em;
-        margin: 8px 0 4px;
+        font-size: 1.1em; /* Slightly larger heading */
+        margin: 10px 0 6px;
     }
     .tile p {
-        font-size: 0.9em;
+        font-size: 1em; /* Larger font for better readability */
+    }
+}
+
+/* Responsive adjustments for larger screens */
+@media screen and (max-width: 768px) {
+    .tile {
+        width: calc(33.333% - 15px); /* 3 per row */
+        margin: 10px;
+    }
+}
+
+/* Responsive adjustments for higher resolution devices */
+@media screen and (max-width: 1200px) {
+    .tile {
+        width: calc(25% - 15px); /* 4 per row */
+        margin: 10px;
     }
 }
