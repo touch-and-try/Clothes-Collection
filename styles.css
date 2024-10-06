@@ -186,31 +186,6 @@ body {
     color: #bbb;
 }
 
-/* For responsive gallery tiles */
-@media screen and (max-width: 768px) {
-    .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 15px;
-        padding: 15px;
-    }
-
-    .tile img {
-        height: 150px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 10px;
-        padding: 10px;
-    }
-
-    .tile img {
-        height: 120px;
-    }
-}
-
 .Contact-Details {
     background-color: #f8f8f8;
     text-align: center;
@@ -240,81 +215,4 @@ body {
     margin: 0;
     color: #666;
     font-size: 1.1em;
-}
-
-/* Responsive adjustments for mobile view */
-@media screen and (max-width: 600px) {
-    .tile {
-        width: calc(50% - 10px); /* Ensure 2 tiles per row */
-        margin: 5px;
-        padding: 10px;
-    }
-
-    .tile h3 {
-        font-size: 1em; /* Adjust heading size */
-        margin: 8px 0 4px;
-    }
-
-    .tile p {
-        font-size: 0.9em; /* Adjust paragraph font size */
-    }
-
-    .tile img {
-        height: 150px; /* Adjust image height */
-    }
-}
-
-/* For tablet view */
-@media screen and (max-width: 768px) {
-    .tile {
-        width: calc(50% - 10px); /* 2 tiles per row for tablet screens */
-    }
-}
-
-/* Responsive adjustments for FHD and mobile view */
-@media screen and (max-width: 1080px) {
-    .tile {
-        width: calc(50% - 10px); /* Ensure 2 tiles per row on FHD mobiles and tablets */
-        margin: 5px;
-        padding: 10px;
-    }
-
-    .tile img {
-        height: 180px; /* Adjust image height */
-    }
-
-    .tile h3 {
-        font-size: 1em; /* Adjust heading size */
-        margin: 8px 0 4px;
-    }
-
-    .tile p {
-        font-size: 0.9em; /* Adjust paragraph font size */
-    }
-}
-
-/* For larger screens (above 1080px, e.g., desktops or tablets) */
-@media screen and (min-width: 1081px) and (max-width: 1600px) {
-    .tile {
-        width: calc(50% - 10px); /* 3 tiles per row for tablets and smaller desktops */
-    }
-}
-
-/* For smaller phones (less than 600px) */
-@media screen and (max-width: 600px) {
-    .tile {
-        width: calc(50% - 10px); /* Still keep 2 tiles per row */
-        margin: 5px;
-        padding: 10px;
-    }
-    .tile img {
-        height: 150px; /* Adjust image height for smaller screens */
-    }
-}
-
-/* For larger screens (desktops) */
-@media screen and (min-width: 1600px) {
-    .tile {
-        width: calc(50% - 10px); /* 4 tiles per row for large screens */
-    }
 }
