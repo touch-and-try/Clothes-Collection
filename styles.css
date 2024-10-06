@@ -27,16 +27,44 @@ body {
 }
 
 .tile {
+    width: calc(25% - 20px); /* For 4 tiles per row on larger screens */
+    max-width: 250px; /* Reduced maximum width for larger screens */
     margin: 10px;
-    /* Add other existing styles for tiles */
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+.tile .slideshow {
+    width: 100%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    position: relative;
+    overflow: hidden;
+}
+
+.tile .slideshow img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tile h3 {
+    margin: 10px 0 5px;
+    font-size: 1em; /* Slightly reduced font size */
+    text-align: center;
+}
+
+.tile p {
+    margin: 0;
+    font-size: 0.8em; /* Slightly reduced font size */
+    text-align: center;
 }
 
 .tile:hover {
@@ -226,66 +254,61 @@ body {
 }
 
 .tile {
+    width: calc(25% - 20px); /* For 4 tiles per row on larger screens */
+    max-width: 250px; /* Reduced maximum width for larger screens */
     margin: 10px;
-    /* Add other existing styles for tiles */
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
 }
 
-.tile:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.tile img {
+.tile .slideshow {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    position: relative;
+    overflow: hidden;
 }
 
 .tile .slideshow img {
-    display: none;
-}
-
-.tile .slideshow img:first-child {
-    display: block;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 10px;
-    }
-
-    .Contact-Details h1 {
-        font-size: 1.4em;
-    }
-
-    .Contact-Details p {
-        font-size: 1em;
-    }
-
-    .gallery {
-        padding: 10px 0;
-    }
-
-    .tile {
-        /* Adjust tile size for smaller screens if needed */
-    }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .tile h3 {
-    margin-bottom: 5px; /* Reduce bottom margin of the title */
-    font-size: 1.2em; /* Adjust as needed */
+    margin: 10px 0 5px;
+    font-size: 1em; /* Slightly reduced font size */
+    text-align: center;
 }
 
 .tile p {
-    margin-top: 0; /* Remove top margin of the paragraph */
-    font-size: 0.9em; /* Adjust as needed */
+    margin: 0;
+    font-size: 0.8em; /* Slightly reduced font size */
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .tile {
+        width: calc(33.333% - 20px); /* 3 tiles per row on medium-large screens */
+    }
+}
+
+@media (max-width: 900px) {
+    .tile {
+        width: calc(50% - 20px); /* 2 tiles per row on medium screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .tile {
+        width: calc(100% - 20px); /* 1 tile per row on small screens */
+    }
 }
