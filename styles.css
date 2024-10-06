@@ -333,7 +333,7 @@ body {
 /* For larger screens (above 1080px, e.g., desktops or tablets) */
 @media screen and (min-width: 1081px) and (max-width: 1600px) {
     .tile {
-        width: calc(33.333% - 10px); /* 3 tiles per row for tablets and smaller desktops */
+        width: calc(50% - 10px); /* 3 tiles per row for tablets and smaller desktops */
     }
 }
 
@@ -352,6 +352,6 @@ body {
 /* For larger screens (desktops) */
 @media screen and (min-width: 1600px) {
     .tile {
-        width: calc(25% - 10px); /* 4 tiles per row for large screens */
+        width: calc(50% - 10px); /* 4 tiles per row for large screens */
     }
 }
