@@ -216,3 +216,94 @@ body {
     color: #666;
     font-size: 1.1em;
 }
+
+/* Responsive design */
+@media screen and (max-width: 1200px) {
+    .tile {
+        width: calc(16.666% - 10px); /* 6 per row */
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .tile {
+        width: calc(20% - 10px); /* 5 per row */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tile {
+        width: calc(25% - 10px); /* 4 per row */
+    }
+    
+    .Contact-Details h1 {
+        font-size: 1.5em;
+    }
+    
+    .Contact-Details h2 {
+        font-size: 1.2em;
+    }
+    
+    .Contact-Details p {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .gallery {
+        padding: 5px;
+    }
+    
+    .tile {
+        width: calc(50% - 10px); /* 2 per row */
+        margin: 5px;
+    }
+    
+    .tile h3 {
+        font-size: 0.9em;
+    }
+    
+    .tile p {
+        font-size: 0.8em;
+    }
+    
+    .Contact-Details {
+        padding: 15px 0;
+    }
+    
+    .Contact-Details h1 {
+        font-size: 1.3em;
+    }
+    
+    .Contact-Details h2 {
+        font-size: 1.1em;
+    }
+    
+    .Contact-Details p {
+        font-size: 0.9em;
+    }
+    
+    .modal-content {
+        max-width: 95%;
+    }
+    
+    .slideshow-modal {
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+    
+    .close {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .tile {
+        width: calc(100% - 10px); /* 1 per row for very small screens */
+    }
+}
