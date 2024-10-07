@@ -330,3 +330,13 @@ body {
         width: calc(100% - 10px); /* 1 per row for very small screens */
     }
 }
+
+.tile a {
+    color: #007bff; /* Set a distinct color for links */
+    text-decoration: underline; /* Underline to mimic hyperlink */
+    cursor: pointer; /* Pointer cursor for links */
+}
+
+.tile a:hover {
+    color: #0056b3; /* Darker color on hover */
+}
