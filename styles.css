@@ -383,3 +383,8 @@ body {
     animation: blinkColorful 1s infinite;
     font-weight: bold;
 }
+
+.price-details p {
+    animation: blinkColorful 1s infinite;
+    font-weight: bold;
+}
