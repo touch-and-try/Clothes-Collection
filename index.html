@@ -425,10 +425,10 @@
                     <img src="images/printed/11/image3.jpeg" alt="Cloth 102"> -->
                 </div>
                 <h3><a href="#" onclick="openModal('item34'); return false;">Shirt 34</a></h3>
-    <p><a href="#" onclick="openModal('item34'); return false;">Sizes: M,L,XL,XXL</a></p>
-    <div class="overlay">Click to view more</div>
+                <p><a href="#" onclick="openModal('item34'); return false;">Sizes: M,L,XL,XXL</a></p>
+                <div class="overlay">Click to view more</div>
             </div>
-
+            
             <!-- Thirty-fifth Item -->
             <div class="tile" onclick="openModal('item35')">
                 <div class="slideshow">
@@ -514,11 +514,19 @@
 
             modal.classList.add('show'); // Show the modal
             showSlides(modalSlideIndex);
+
+            // Push a new state to the history
+            history.pushState({ modalOpen: true }, '', '#modal');
         }
 
         function closeModal() {
             const modal = document.getElementById('modal');
             modal.classList.remove('show'); // Hide the modal
+
+            // Go back in history to remove the modal state
+            if (history.state && history.state.modalOpen) {
+                history.back();
+            }
         }
 
         function plusSlides(n) {
@@ -538,6 +546,13 @@
         // Ensure modal is hidden on page load by removing "show" class
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('modal').classList.remove('show');
+        });
+
+        // Listen for the popstate event to close the modal
+        window.addEventListener('popstate', (event) => {
+            if (!event.state || !event.state.modalOpen) {
+                closeModal();
+            }
         });
     </script>
 </body>
