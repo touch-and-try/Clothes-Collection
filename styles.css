@@ -339,3 +339,47 @@ body {
 .tile a:hover {
     color: #0056b3; /* Darker color on hover */
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-bottom: 2px solid #3498db;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.price-details {
+    text-align: left;
+    color: #2c3e50;
+}
+
+.contact-details {
+    text-align: right;
+    color: #2c3e50;
+}
+
+.contact-details h1, .price-details h2 {
+    margin: 0;
+    font-size: 1.4em;
+}
+
+.contact-details p {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+@keyframes blinkColorful {
+    0% { color: #ff0000; }   /* Red */
+    25% { color: #00ff00; }  /* Green */
+    50% { color: #0000ff; }  /* Blue */
+    75% { color: #ff00ff; }  /* Magenta */
+    100% { color: #ff0000; } /* Red */
+}
+
+.price-details h2 {
+    animation: blinkColorful 1s infinite;
+    font-weight: bold;
+}
